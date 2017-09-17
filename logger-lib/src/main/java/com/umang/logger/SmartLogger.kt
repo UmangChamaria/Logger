@@ -7,45 +7,60 @@ import android.util.Log
 /**
  * @author Umang Chamaria
  */
-val LOG_LEVEL_INFO = 1
 
-val LOG_LEVEL_ERROR = 2
 
-val LOG_LEVEL_WARN = 3
+object SmartLogHelper{
 
-val LOG_LEVEL_DEBUG = 4
+  val LOG_LEVEL_INFO = 1
 
-val LOG_LEVEL_VERBOSE = 5
+  val LOG_LEVEL_ERROR = 2
 
-var LOG_LEVEL = LOG_LEVEL_INFO
+  val LOG_LEVEL_WARN = 3
 
-var LOG_STATUS = false
+  val LOG_LEVEL_DEBUG = 4
 
-var LOG_TAG = "SmartLogger"
+  val LOG_LEVEL_VERBOSE = 5
+
+  var LOG_STATUS = false
+
+  var LOG_TAG = "SmartLogger"
+
+  var LOG_LEVEL = LOG_LEVEL_INFO
+
+  fun initializeLogger(context: Context){
+    try {
+      val isDebug =   (0 != (context.applicationInfo).flags and ApplicationInfo.FLAG_DEBUGGABLE)
+      if (isDebug) SmartLogHelper.LOG_STATUS = true
+    } catch (e: Exception) {
+      Log.e("SmartLogger", "initializeLogger() Exception: ", e)
+    }
+  }
+
+}
 
 interface SmartLogger {
-  val loggerTag: String
+  val className: String
     get() = getTag(javaClass)
 }
 
 fun SmartLogger.info(message: String, throwable: Throwable? = null){
-  log(loggerTag, message, throwable, LOG_LEVEL_INFO)
+  logIfRequired(className, message, throwable, SmartLogHelper.LOG_LEVEL_INFO)
 }
 
 fun SmartLogger.verbose(message: String, throwable: Throwable? = null){
-  log(loggerTag, message, throwable, LOG_LEVEL_VERBOSE)
+  logIfRequired(className, message, throwable, SmartLogHelper.LOG_LEVEL_VERBOSE)
 }
 
 fun SmartLogger.warn(message: String, throwable: Throwable? = null){
-  log(loggerTag, message, throwable, LOG_LEVEL_WARN)
+  logIfRequired(className, message, throwable, SmartLogHelper.LOG_LEVEL_WARN)
 }
 
 fun SmartLogger.debug(message: String, throwable: Throwable? = null){
-  log(loggerTag, message, throwable, LOG_LEVEL_DEBUG)
+  logIfRequired(className, message, throwable, SmartLogHelper.LOG_LEVEL_DEBUG)
 }
 
 fun SmartLogger.error(message: String, throwable: Throwable? = null){
-  log(loggerTag, message, throwable, LOG_LEVEL_ERROR)
+  logIfRequired(className, message, throwable, SmartLogHelper.LOG_LEVEL_ERROR)
 }
 
 private fun getTag(clazz: Class<*>): String {
@@ -57,21 +72,12 @@ private fun getTag(clazz: Class<*>): String {
   }
 }
 
-private fun log(tag: String, message: String, throwable: Throwable?, loglevel: Int){
-  if (LOG_STATUS && LOG_LEVEL >=loglevel){
+private fun logIfRequired(classname: String, message: String, throwable: Throwable?, logLevel: Int){
+  if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= logLevel){
     if (throwable != null){
-      Log.i(tag, message, throwable)
+      Log.i(SmartLogHelper.LOG_TAG, classname + " " + message, throwable)
     }else{
-      Log.i(tag, message)
+      Log.i(SmartLogHelper.LOG_TAG, classname + " " + message)
     }
-  }
-}
-
-fun enableLogsForDebugBuild(context: Context){
-  try {
-    val isDebug =   (0 != (context.applicationInfo).flags and ApplicationInfo.FLAG_DEBUGGABLE)
-    if (isDebug) LOG_STATUS = true
-  } catch (e: Exception) {
-
   }
 }
