@@ -1,6 +1,5 @@
 package com.umang.logger
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
@@ -14,7 +13,5 @@ class MainActivity : AppCompatActivity(),SmartLogger {
     warn("warning log")
     debug("debug log")
     verbose("verbose log")
-    val intent = Intent(this, SecondActivity::class.java)
-    startActivity(intent)
   }
 }
