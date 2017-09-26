@@ -88,9 +88,9 @@ fun SmartLogger.info(message: String, throwable: Throwable? = null) {
 fun SmartLogger.verbose(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_VERBOSE) {
     if (throwable != null) {
-      Log.i(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
+      Log.v(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
     } else {
-      Log.i(SmartLogHelper.LOG_TAG, className + " " + message)
+      Log.v(SmartLogHelper.LOG_TAG, className + " " + message)
     }
   }
 }
@@ -98,9 +98,9 @@ fun SmartLogger.verbose(message: String, throwable: Throwable? = null) {
 fun SmartLogger.warn(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_WARN) {
     if (throwable != null) {
-      Log.i(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
+      Log.w(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
     } else {
-      Log.i(SmartLogHelper.LOG_TAG, className + " " + message)
+      Log.w(SmartLogHelper.LOG_TAG, className + " " + message)
     }
   }
 }
@@ -108,9 +108,9 @@ fun SmartLogger.warn(message: String, throwable: Throwable? = null) {
 fun SmartLogger.debug(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_DEBUG) {
     if (throwable != null) {
-      Log.i(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
+      Log.d(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
     } else {
-      Log.i(SmartLogHelper.LOG_TAG, className + " " + message)
+      Log.d(SmartLogHelper.LOG_TAG, className + " " + message)
     }
   }
 }
@@ -118,9 +118,9 @@ fun SmartLogger.debug(message: String, throwable: Throwable? = null) {
 fun SmartLogger.error(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_ERROR) {
     if (throwable != null) {
-      Log.i(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
+      Log.e(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
     } else {
-      Log.i(SmartLogHelper.LOG_TAG, className + " " + message)
+      Log.e(SmartLogHelper.LOG_TAG, className + " " + message)
     }
   }
 }
