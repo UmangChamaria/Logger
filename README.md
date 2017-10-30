@@ -10,6 +10,14 @@ Features:
 
 # Usage
 
+**Installation**<br/>
+
+To use the logger library add the below dependency in the app level build.gradle 
+
+```
+implementation 'com.umang:logger-lib:1.0.0'
+```
+
 **Initialize Logger**<br/>
  
 Before you start using the SmartLogger it needs to initialized. This is requried because SmartLogger prints logs only if the application is in debug mode, if it is a signed build the SmartLogger does not print any logs. Though logs can be enabled for signed build as well, described later. To initialize the logger add the below line of code in the application class.
