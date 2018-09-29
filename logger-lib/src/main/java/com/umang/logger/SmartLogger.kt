@@ -13,23 +13,23 @@ object SmartLogHelper {
   /**
    * Priority constant for the log method; use info().
    */
-  val LOG_LEVEL_INFO = 1
+  const val LOG_LEVEL_INFO = 1
   /**
    * Priority constant for the log method; use error().
    */
-  val LOG_LEVEL_ERROR = 2
+  const val LOG_LEVEL_ERROR = 2
   /**
    * Priority constant for the log method; use warn().
    */
-  val LOG_LEVEL_WARN = 3
+  const val LOG_LEVEL_WARN = 3
   /**
    * Priority constant for the log method; use debug().
    */
-  val LOG_LEVEL_DEBUG = 4
+  const val LOG_LEVEL_DEBUG = 4
   /**
    * Priority constant for the log method; use verbose().
    */
-  val LOG_LEVEL_VERBOSE = 5
+  const val LOG_LEVEL_VERBOSE = 5
 
   /**
    * Default log status.
@@ -78,9 +78,9 @@ interface SmartLogger {
 fun SmartLogger.info(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_INFO) {
     if (throwable != null) {
-      Log.i(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
+      Log.i(SmartLogHelper.LOG_TAG, "$className $message", throwable)
     } else {
-      Log.i(SmartLogHelper.LOG_TAG, className + " " + message)
+      Log.i(SmartLogHelper.LOG_TAG, "$className $message")
     }
   }
 }
@@ -88,9 +88,9 @@ fun SmartLogger.info(message: String, throwable: Throwable? = null) {
 fun SmartLogger.verbose(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_VERBOSE) {
     if (throwable != null) {
-      Log.v(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
+      Log.v(SmartLogHelper.LOG_TAG, "$className $message", throwable)
     } else {
-      Log.v(SmartLogHelper.LOG_TAG, className + " " + message)
+      Log.v(SmartLogHelper.LOG_TAG, "$className $message")
     }
   }
 }
@@ -98,9 +98,9 @@ fun SmartLogger.verbose(message: String, throwable: Throwable? = null) {
 fun SmartLogger.warn(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_WARN) {
     if (throwable != null) {
-      Log.w(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
+      Log.w(SmartLogHelper.LOG_TAG, "$className $message", throwable)
     } else {
-      Log.w(SmartLogHelper.LOG_TAG, className + " " + message)
+      Log.w(SmartLogHelper.LOG_TAG, "$className $message")
     }
   }
 }
@@ -108,9 +108,9 @@ fun SmartLogger.warn(message: String, throwable: Throwable? = null) {
 fun SmartLogger.debug(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_DEBUG) {
     if (throwable != null) {
-      Log.d(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
+      Log.d(SmartLogHelper.LOG_TAG, "$className $message", throwable)
     } else {
-      Log.d(SmartLogHelper.LOG_TAG, className + " " + message)
+      Log.d(SmartLogHelper.LOG_TAG, "$className $message")
     }
   }
 }
@@ -118,9 +118,9 @@ fun SmartLogger.debug(message: String, throwable: Throwable? = null) {
 fun SmartLogger.error(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_ERROR) {
     if (throwable != null) {
-      Log.e(SmartLogHelper.LOG_TAG, className + " " + message, throwable)
+      Log.e(SmartLogHelper.LOG_TAG, "$className $message", throwable)
     } else {
-      Log.e(SmartLogHelper.LOG_TAG, className + " " + message)
+      Log.e(SmartLogHelper.LOG_TAG, "$className $message")
     }
   }
 }
