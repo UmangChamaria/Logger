@@ -7,8 +7,6 @@ import android.util.Log
 /**
  * @author Umang Chamaria
  */
-
-
 object SmartLogHelper {
   /**
    * Priority constant for the log method; use info().
@@ -75,6 +73,11 @@ interface SmartLogger {
     get() = getTag(javaClass)
 }
 
+/**
+ * Equivalent of [Log.i]
+ * @param message Message to be logged
+ * @param throwable throwable object if any
+ */
 fun SmartLogger.info(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_INFO) {
     if (throwable != null) {
@@ -85,6 +88,11 @@ fun SmartLogger.info(message: String, throwable: Throwable? = null) {
   }
 }
 
+/**
+ * Equivalent of [Log.v]
+ * @param message Message to be logged
+ * @param throwable throwable object if any
+ */
 fun SmartLogger.verbose(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_VERBOSE) {
     if (throwable != null) {
@@ -95,6 +103,11 @@ fun SmartLogger.verbose(message: String, throwable: Throwable? = null) {
   }
 }
 
+/**
+ * Equivalent of [Log.w]
+ * @param message Message to be logged
+ * @param throwable throwable object if any
+ */
 fun SmartLogger.warn(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_WARN) {
     if (throwable != null) {
@@ -105,6 +118,11 @@ fun SmartLogger.warn(message: String, throwable: Throwable? = null) {
   }
 }
 
+/**
+ * Equivalent of [Log.d]
+ * @param message Message to be logged
+ * @param throwable throwable object if any
+ */
 fun SmartLogger.debug(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_DEBUG) {
     if (throwable != null) {
@@ -115,6 +133,11 @@ fun SmartLogger.debug(message: String, throwable: Throwable? = null) {
   }
 }
 
+/**
+ * Equivalent of [Log.e]
+ * @param message Message to be logged
+ * @param throwable throwable object if any
+ */
 fun SmartLogger.error(message: String, throwable: Throwable? = null) {
   if (SmartLogHelper.LOG_STATUS && SmartLogHelper.LOG_LEVEL >= SmartLogHelper.LOG_LEVEL_ERROR) {
     if (throwable != null) {
