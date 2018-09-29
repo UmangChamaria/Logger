@@ -1,6 +1,41 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+ext {
+  def bintrayMeta = rootProject.ext.bintrayMeta
+
+  bintrayRepo = bintrayMeta.bintrayRepo
+  bintrayName = bintrayMeta.bintrayName
+  publishedGroupId = bintrayMeta.publishedGroupId
+  libraryName = bintrayMeta.libraryName
+  artifact = bintrayMeta.artifact
+  libraryDescription = bintrayMeta.libraryDescription
+
+  def urlMeta = rootProject.ext.urlMeta
+
+  siteUrl = urlMeta.siteUrl
+  gitUrl = urlMeta.gitUrl
+
+  def versionMeta = rootProject.ext.versionMeta
+
+  libraryVersion = versionMeta.majorVersion + versionMeta.versionSeparator +
+      versionMeta.minorVersion +
+      versionMeta.versionSeparator +
+      versionMeta.patchVersion
+
+  def developerMeta = rootProject.ext.developerMeta
+
+  developerId = developerMeta.developerId
+  developerName = developerMeta.developerName
+  developerEmail = developerMeta.developerEmail
+
+  def licenseMeta = rootProject.ext.licenseMeta
+
+  licenseName = licenseMeta.licenseName
+  licenseUrl = licenseMeta.licenseUrl
+  allLicenses = licenseMeta.allLicenses
+}
+
 android {
   compileSdkVersion 26
 
@@ -33,3 +68,6 @@ dependencies {
 repositories {
   mavenCentral()
 }
+
+apply from: 'https://raw.githubusercontent.com/UmangChamaria/jcenterKotlin/master/installv.gradle'
+apply from: 'https://raw.githubusercontent.com/UmangChamaria/jcenterKotlin/master/bintray.gradle'
