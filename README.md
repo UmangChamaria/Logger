@@ -15,7 +15,7 @@ Small utility library for for logging. This is just because was lazy to copy the
 To use the logger library add the below dependency in the app level build.gradle 
 
 ```
-implementation 'com.umang:logger-lib:1.0.0'
+implementation 'com.umang:logger-lib:1.1.0'
 ```
 
 **Initialize Logger**<br/>
