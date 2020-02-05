@@ -71,3 +71,5 @@ class MainActivity : AppCompatActivity(),SmartLogger {
   }
 }
 ```
+
+Documentation - https://umang91.github.io/SmartLogger/
