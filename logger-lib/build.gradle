@@ -76,6 +76,7 @@ apply from: 'https://raw.githubusercontent.com/umang91/jcenterScripts/master/bin
 apply plugin: 'org.jetbrains.dokka-android'
 
 dokka {
+  moduleName = ''
   outputFormat = 'html'
   outputDirectory = "../docs"
 }
