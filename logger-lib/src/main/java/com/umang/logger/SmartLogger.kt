@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo
 import android.util.Log
 
 /**
+ * Helper class to initialise the library and set the logging level.
  * @author Umang Chamaria
  */
 object SmartLogHelper {
@@ -41,8 +42,8 @@ object SmartLogHelper {
   /**
    * Default log tag.
    * Can be overridden by using
-   *
-   * SmartLogHelper.LOG_TAG = "SampleApplication"
+   * <b>Note:</b> Tag length should not be greater than 23.
+   * @sample SmartLogHelper.LOG_TAG = "SampleApplication"
    */
   var LOG_TAG = "SmartLogger"
 
