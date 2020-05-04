@@ -1,11 +1,9 @@
-package com.umang.logger
+package com.umang.logger.example
 
 import android.app.Application
+import com.umang.logger.SmartLogHelper
 
-/**
- * @author Umang Chamaria
- */
-class SampleApplication:Application() {
+class SampleApplication: Application() {
   override fun onCreate() {
     super.onCreate()
     SmartLogHelper.initializeLogger(applicationContext)

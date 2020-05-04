@@ -2,73 +2,72 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 ext {
-  def bintrayMeta = rootProject.ext.bintrayMeta
+    def bintrayMeta = rootProject.ext.bintrayMeta
 
-  bintrayRepo = bintrayMeta.bintrayRepo
-  bintrayName = bintrayMeta.bintrayName
-  publishedGroupId = bintrayMeta.publishedGroupId
-  libraryName = bintrayMeta.libraryName
-  artifact = bintrayMeta.artifact
-  libraryDescription = bintrayMeta.libraryDescription
+    bintrayRepo = bintrayMeta.bintrayRepo
+    bintrayName = bintrayMeta.bintrayName
+    publishedGroupId = bintrayMeta.publishedGroupId
+    libraryName = bintrayMeta.libraryName
+    artifact = bintrayMeta.artifact
+    libraryDescription = bintrayMeta.libraryDescription
 
-  def urlMeta = rootProject.ext.urlMeta
+    def urlMeta = rootProject.ext.urlMeta
 
-  siteUrl = urlMeta.siteUrl
-  gitUrl = urlMeta.gitUrl
+    siteUrl = urlMeta.siteUrl
+    gitUrl = urlMeta.gitUrl
 
-  def versionMeta = rootProject.ext.versionMeta
+    def versionMeta = rootProject.ext.versionMeta
 
-  libraryVersion = versionMeta.majorVersion + versionMeta.versionSeparator +
-      versionMeta.minorVersion +
-      versionMeta.versionSeparator +
-      versionMeta.patchVersion
+    libraryVersion = versionMeta.majorVersion + versionMeta.versionSeparator +
+            versionMeta.minorVersion +
+            versionMeta.versionSeparator +
+            versionMeta.patchVersion
 
-  def developerMeta = rootProject.ext.developerMeta
+    def developerMeta = rootProject.ext.developerMeta
 
-  developerId = developerMeta.developerId
-  developerName = developerMeta.developerName
-  developerEmail = developerMeta.developerEmail
+    developerId = developerMeta.developerId
+    developerName = developerMeta.developerName
+    developerEmail = developerMeta.developerEmail
 
-  def licenseMeta = rootProject.ext.licenseMeta
+    def licenseMeta = rootProject.ext.licenseMeta
 
-  licenseName = licenseMeta.licenseName
-  licenseUrl = licenseMeta.licenseUrl
-  allLicenses = licenseMeta.allLicenses
+    licenseName = licenseMeta.licenseName
+    licenseUrl = licenseMeta.licenseUrl
+    allLicenses = licenseMeta.allLicenses
 }
 
 android {
-  compileSdkVersion 26
+    compileSdkVersion 26
 
 
-  defaultConfig {
-    minSdkVersion 16
-    targetSdkVersion 26
-    versionCode 1
-    versionName "1.0"
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
 
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
-
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-  }
-}
 
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
 
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-  testImplementation 'junit:junit:4.12'
-  androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
-    exclude group: 'com.android.support', module: 'support-annotations'
-  })
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
-  mavenCentral()
+    mavenCentral()
 }
 
 apply from: 'https://raw.githubusercontent.com/umang91/jcenterScripts/master/installv.gradle'
@@ -76,7 +75,7 @@ apply from: 'https://raw.githubusercontent.com/umang91/jcenterScripts/master/bin
 apply plugin: 'org.jetbrains.dokka-android'
 
 dokka {
-  moduleName = ''
-  outputFormat = 'html'
-  outputDirectory = "../docs"
+    moduleName = ''
+    outputFormat = 'html'
+    outputDirectory = "../docs"
 }
