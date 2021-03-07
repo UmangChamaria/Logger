@@ -1,7 +1,7 @@
 # SmartLogger
 Small utility library for for logging. This is just because was lazy to copy the same file in every project.
 
-![Download](https://api.bintray.com/packages/umangchamaria/umang/loggerLib/images/download.svg)
+![MavenBadge](https://maven-badges.herokuapp.com/maven-central/dev.assemblage/logger-lib/badge.svg)
 
 
 # Features:
@@ -18,8 +18,9 @@ Small utility library for for logging. This is just because was lazy to copy the
 To use the logger library add the below dependency in the app level build.gradle 
 
 ```
-implementation 'com.umang:logger-lib:+'
+implementation("dev.assemblage:logger-lib:$sdkVersion")
 ```
+replace `$sdkVersion` with the latest SDK version.
 
 **Initialize Logger**<br/>
  
@@ -72,4 +73,4 @@ class MainActivity : AppCompatActivity(),SmartLogger {
 }
 ```
 
-Documentation - https://umang91.github.io/SmartLogger/
+Refer to the [API documentation](https://umang91.github.io/SmartLogger/docs/logger-lib) for more details.

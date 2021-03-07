@@ -1,2 +1,0 @@
-include ':logger-lib'
-include ':example'

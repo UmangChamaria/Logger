@@ -46,7 +46,9 @@ object SmartLogHelper {
     /**
      * Default log tag.
      * Can be overridden by using
+     *
      * <b>Note:</b> Tag length should not be greater than 23.
+     *
      * @sample SmartLogHelper.LOG_TAG = "SampleApplication"
      */
     var LOG_TAG = "SmartLogger"
