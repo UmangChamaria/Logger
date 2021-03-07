@@ -73,4 +73,4 @@ class MainActivity : AppCompatActivity(),SmartLogger {
 }
 ```
 
-Refer to the [API documentation](https://umang91.github.io/SmartLogger/docs/logger-lib) for more details.
+Refer to the [API documentation](https://umang91.github.io/SmartLogger/logger-lib/) for more details.
